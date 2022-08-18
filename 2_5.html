@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    /**
+     * Функция складывает два переданных числа.
+     * @param {number} num1 Первое слагаемое.
+     * @param {number} num2 Второе слагаемое. 
+     * @returns {number} Вернет сумму чисел.
+     */
+    function getSum(num1, num2) {
+      return num1 + num2;
+    }
+
+    /**
+     * Функция перемножает два числа.
+     * @param {number} num1 Первый множитель.
+     * @param {number} num2 Второй множитель. 
+     * @returns {number} Вернет произведение чисел.
+     */
+    function getMult(num1, num2) {
+      return num1 * num2;
+    }
+
+    /**
+     * Функция вычитает из большего числа меньшее.
+     * @param {number} num1 Первое число.
+     * @param {number} num2 Второе число. 
+     * @returns {number} Вернет разность чисел.
+     */
+    function getSub(num1, num2) {
+      return num1 > num2 ? num1 - num2 : num2 - num1;
+    }
+
+    /**
+     * Функция делит первое число на второе.
+     * @param {number} num1 Делимое.
+     * @param {number} num2 Делитель. 
+     * @returns {number} Вернет частное чисел.
+     */
+    function getDiv(num1, num2) {
+      return num1 / num2;
+    }
+
+    /**
+     * Фкнуция должна вернуть результат операции, для двух первых аргументов.
+     * Тип операции передается в третьем аргументе в виде строки: "+", "-", "*",
+     * "/".
+     * @param {number} arg1 Первое число.
+     * @param {number} arg2 Второе число.
+     * @param {string} operation Тип операции.
+     * @returns {number} Вернет результат операции либо NaN, если некорректно
+     * задан третий параметр.
+     */
+    function mathOperation(arg1, arg2, operation) {
+
+      switch (operation) {
+        case '+':
+          return getSum(arg1, arg2);
+        case '-':
+          return getSub(arg1, arg2);
+        case '*':
+          return getMult(arg1, arg2);
+        case '/':
+          return getDiv(arg1, arg2).toFixed(2);
+        default:
+          return NaN;
+      }
+    }
+
+    console.log(mathOperation(5, 6, '+'));
+    console.log(mathOperation(5, 6, '-'));
+    console.log(mathOperation(5, 6, '*'));
+    console.log(mathOperation(5, 6, '/'));
+    console.log(mathOperation(5, 6, ':'));
+  </script>
+</body>
+
+</html>
